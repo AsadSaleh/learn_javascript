@@ -12,14 +12,38 @@
 const axios = require("axios");
 
 async function getData() {
-  const response = await axios.get(
-    "https://jsonplaceholder.typicode.com/posts"
-  );
+  // // 1
+  // axios
+  //   .get("")
+  //   .then((value) => console.log(value))
+  //   .catch((error) => console.log(error));
 
-  return response.data
-    .filter((item) => item.userId % 2 === 0)
-    .map((item) => ({ id: item.id, title: item.title }))
-    .filter((item, index) => index <= 9);
+  // // 2
+  // try {
+  //   const res = await axios.get("");
+  //   console.log(res);
+  // } catch (error) {
+  //   console.log(error);
+  // }
+
+  try {
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/posts"
+    );
+    console.log("haha");
+
+    // throw {
+    //   message: "Cannot get data",
+    //   desc: "Cannot get data because internet not connected",
+    // };
+
+    return response.data
+      .filter((item) => item.userId % 2 === 0)
+      .map((item) => ({ id: item.id, title: item.title }))
+      .filter((item, index) => index <= 9);
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 async function runProgram() {
