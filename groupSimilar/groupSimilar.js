@@ -22,14 +22,7 @@ function groupSimilar(obj) {
     }
   }
 
-  // const result = Array.from(temp).map(([stringKey, value]) => [
-  //   stringKey.split(","),
-  //   value,
-  // ]);
-  const result = Object.values(temp);
-
-  console.log(result);
-  return result;
+  return Object.values(temp);
 }
 
 module.exports = {
