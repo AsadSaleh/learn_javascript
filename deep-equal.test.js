@@ -12,4 +12,10 @@ test("basic", () => {
 test("complex", () => {
   expect(deepEqual({ a: "lorem" }, { a: "lorem" })).toBe(true);
   expect(deepEqual({ a: "lorem" }, { b: "ipsum" })).toBe(false);
+  expect(
+    deepEqual(
+      { a: { b: "c", d: { e: ["f", { g: "h" }] } } },
+      { a: { b: "c", d: { e: ["f", { g: "h" }] } } }
+    )
+  ).toBe(true);
 });
